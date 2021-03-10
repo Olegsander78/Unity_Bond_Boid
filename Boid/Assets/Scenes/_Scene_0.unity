@@ -217,8 +217,8 @@ GameObject:
   - component: {fileID: 258660012}
   - component: {fileID: 258660011}
   - component: {fileID: 258660010}
-  - component: {fileID: 258660014}
   - component: {fileID: 258660013}
+  - component: {fileID: 258660014}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -318,18 +318,18 @@ MonoBehaviour:
   boidPrefab: {fileID: 6860645734459158752, guid: 9e96d7eab820f4a4390c09d09f600b71,
     type: 3}
   boidAnchor: {fileID: 1556616822}
-  numBoids: 50
+  numBoids: 100
   spawnRadius: 100
   spawnDelay: 0.1
-  velocity: 30
+  velocity: 60
   neighborDist: 30
-  collDist: 4
-  velMatching: 0.25
+  collDist: 10
+  velMatching: 10
   flockCentering: 0.2
-  collAvoid: 2
-  attractPull: 2
+  collAvoid: 4
+  attractPull: 3
   attractPush: 2
-  attractPushDist: 5
+  attractPushDist: 1
 --- !u!1 &567407955
 GameObject:
   m_ObjectHideFlags: 0
