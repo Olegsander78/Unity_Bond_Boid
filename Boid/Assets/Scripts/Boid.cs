@@ -12,13 +12,14 @@ public class Boid : MonoBehaviour
     void Awake()
     {
         neighborhood = GetComponent<Neighborhood>();
-        rigid = GetComponent<Rigidbody>();  
+        rigid = GetComponent<Rigidbody>();  //a
 
-        pos = Random.insideUnitSphere * Spawner.S.spawnRadius;  
-        Vector3 vel = Random.onUnitSphere * Spawner.S.spawnRadius;  
+        pos = Random.insideUnitSphere * Spawner.S.spawnRadius;   //b
+
+        Vector3 vel = Random.onUnitSphere * Spawner.S.velocity;  //c
         rigid.velocity = vel;
 
-        LookAhead();
+        LookAhead();   //d
 
         Color randColor = Color.black;   //e
         while (randColor.r + randColor.g + randColor.b < 1.0f)
@@ -30,8 +31,8 @@ public class Boid : MonoBehaviour
         {
             r.material.color = randColor;
         }
-        TrailRenderer tRend = GetComponent<TrailRenderer>();
-        tRend.material.SetColor("_TintColor", randColor);  
+        TrailRenderer trend = GetComponent<TrailRenderer>();
+        trend.material.SetColor("_TintColor", randColor);  
     }
 
     void LookAhead()    //d
@@ -114,9 +115,9 @@ public class Boid : MonoBehaviour
         else
         {
             vel = Vector3.Lerp(vel, -velAttract, spn.attractPush * fdt);
-        }
+        }*/
 
-        vel = vel.normalized * spn.velocity; */
+        vel = vel.normalized * spn.velocity; 
         rigid.velocity = vel;
         LookAhead();
     }

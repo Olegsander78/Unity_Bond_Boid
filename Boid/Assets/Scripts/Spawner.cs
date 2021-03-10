@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    static public Spawner S;
-    static public List<Boid> boids;
+    static public Spawner S;  //a
+    static public List<Boid> boids;   //b
 
+    //Порядок создания объектов Boid
     [Header("Set in Inspector: Spawning")]
-    public GameObject boidPrefab;
+    public GameObject boidPrefab;  //c
     public Transform boidAnchor;
     public int numBoids = 100;
     public float spawnRadius = 100f;
     public float spawnDelay = 0.1f;
 
+    //Стайное поведение объектов Boid
     [Header("Set in Inspector: Boids")]
     public float velocity = 30f;
     public float neighborDist = 30f;
@@ -27,7 +29,7 @@ public class Spawner : MonoBehaviour
 
     void Awake()
     {
-        S = this;
+        S = this;      //d
         boids = new List<Boid>();
         InstantiateBoid();
     }
@@ -35,11 +37,11 @@ public class Spawner : MonoBehaviour
     {
         GameObject go = Instantiate(boidPrefab);
         Boid b = go.GetComponent<Boid>();
-        b.transform.SetParent(boidAnchor);
+        b.transform.SetParent(boidAnchor);   //e
         boids.Add(b);
         if(boids.Count < numBoids)
         {
-            Invoke("InstantiateBoid", spawnDelay);
+            Invoke("InstantiateBoid", spawnDelay);   //f
         }
     }
 }
